@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import getProgram from '../index.js';
+import genDiff from '../index.js';
 
-getProgram();
+genDiff();
