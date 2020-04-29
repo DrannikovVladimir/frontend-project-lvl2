@@ -5,7 +5,7 @@ publish:
 	npm publish --dry-run
 
 run:
-	npx babel-node 'src/bin/gendiff.js -f [json] before.json after.json'
+	npx babel-node 'src/bin/gendiff.js -f [json] ../before.json ../after.json'
 
 link:
 	sudo npm link
