@@ -1,9 +1,6 @@
 install:
 	npm install
 
-start:
-	node dist/bin/gendiff.js -f [json] before.json after.json
-
 publish:
 	npm publish --dry-run
 
@@ -21,4 +18,4 @@ test:
 	npm test
 
 test-coverage:
-	npm test --debag --coverage
+	npm test -- --coverage

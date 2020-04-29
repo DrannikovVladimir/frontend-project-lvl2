@@ -1,4 +1,4 @@
-import genDiff from '../dist/index.js';
+import genDiff from '../src/index.js';
 
 test('gendiff', () => {
   const result =

@@ -20,13 +20,8 @@ const genDiff = (pathToFile1, pathToFile2) => {
       }
       return [...acc, [` + ${item}: ${valueSecond}`], [` - ${item}: ${valueFirst}`]];
     }
-    if (_.has(firstFile, item) && !_.has(secondFile, item)) {
-      return [...acc, [` - ${item}: ${valueFirst}`]];
-    }
-    if (!_.has(firstFile, item) && _.has(secondFile, item)) {
-      return [...acc, [` + ${item}: ${valueSecond}`]];
-    }
-    return acc;
+    return (_.has(firstFile, item) && !_.has(secondFile, item))
+      ? [...acc, [` - ${item}: ${valueFirst}`]] : [...acc, [` + ${item}: ${valueSecond}`]];
   }, []);
   return `{\n${result.join('\n')}\n}`;
 };
