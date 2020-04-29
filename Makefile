@@ -1,8 +1,14 @@
 install:
-	npm install
+	install-deps
+
+install-deps:
+	npm ci
 
 publish:
 	npm publish --dry-run
+
+run:
+	npx babel-node 'src/bin/gendiff.js -f [json] before.json after.json'
 
 link:
 	sudo npm link
@@ -19,3 +25,5 @@ test:
 
 test-coverage:
 	npm test -- --coverage
+
+.PHONY: test
