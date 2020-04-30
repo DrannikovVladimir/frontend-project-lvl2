@@ -10,5 +10,5 @@ test('gendiff', () => {
  - follow: false
  + verbose: true
 }`;
-  expect(genDiff('../before.json', '../after.json')).toEqual(result);
+  expect(genDiff('before.json', 'after.json')).toEqual(result);
 });
