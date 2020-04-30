@@ -27,4 +27,4 @@ jobs:
     - run: npm ci
     - run: npm test
       env:
-        CC_TEST_REPORTER_ID: bf9393fb6cbe757b6e86f2074711050c40870c9e3c2f5936624e62e9dc7aaf14
+        CC_TEST_REPORTER_ID: 504848acacabe75f463db7321f664362236f178417eaefb6ba0bd04f070d473b
