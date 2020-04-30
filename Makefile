@@ -10,6 +10,9 @@ run:
 link:
 	sudo npm link
 
+unlink:
+	sudo npm unlink
+
 lint:
 	npx eslint .
 
@@ -22,5 +25,3 @@ test:
 
 test-coverage:
 	npm test -- --coverage
-
-.PHONY: test
