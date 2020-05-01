@@ -1,16 +1,11 @@
 import _ from 'lodash';
-import fs from 'fs';
-import process from 'process';
-import path from 'path';
+import getParsedFiles from './parsers.js';
 
 const genDiff = (pathToFile1, pathToFile2) => {
   if (pathToFile1 === undefined || pathToFile2 === undefined) {
     throw new Error('Files not found');
   }
-  const firstFile = JSON.parse(fs.readFileSync(path.resolve(process.cwd(pathToFile1),
-    pathToFile1)));
-  const secondFile = JSON.parse(fs.readFileSync(path.resolve(process.cwd(pathToFile2),
-    pathToFile2)));
+  const [firstFile, secondFile] = getParsedFiles(pathToFile1, pathToFile2);
   const firstFileKeys = Object.keys(firstFile);
   const secondFileKeys = Object.keys(secondFile);
   const allKeys = _.uniq([...firstFileKeys, ...secondFileKeys]);
