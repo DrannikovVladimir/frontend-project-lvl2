@@ -4,6 +4,9 @@ import process from 'process';
 import path from 'path';
 
 const genDiff = (pathToFile1, pathToFile2) => {
+  if (pathToFile1 === undefined || pathToFile2 === undefined) {
+    throw new Error('Files not found');
+  }
   const firstFile = JSON.parse(fs.readFileSync(path.resolve(process.cwd(pathToFile1),
     pathToFile1)));
   const secondFile = JSON.parse(fs.readFileSync(path.resolve(process.cwd(pathToFile2),

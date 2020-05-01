@@ -1,6 +1,10 @@
+import path from 'path';
 import genDiff from '../src/index.js';
 
 test('gendiff', () => {
+  const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
+  const fileBefore = getFixturePath('before.json');
+  const fileAfter = getFixturePath('after.json');
   const result =
 `{
    host: hexlet.io
@@ -10,5 +14,11 @@ test('gendiff', () => {
  - follow: false
  + verbose: true
 }`;
-  expect(genDiff('__fixtures__/before.json', '__fixtures__/after.json')).toEqual(result);
+  expect(genDiff(fileBefore, fileAfter)).toEqual(result);
+});
+
+test('Error', () => {
+  expect(() => {
+    genDiff();
+  }).toThrow('Files not found');
 });
