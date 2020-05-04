@@ -1,4 +1,5 @@
 import yaml from 'js-yaml';
+import ini from 'ini';
 import fs from 'fs';
 import process from 'process';
 import path from 'path';
@@ -15,6 +16,9 @@ const getParsedFiles = (pathToFile1, pathToFile2) => {
   } else if (extentionFile === '.yml' || extentionFile === '.yaml') {
     firstFile = yaml.safeLoad(fs.readFileSync(file1), 'utf-8');
     secondFile = yaml.safeLoad(fs.readFileSync(file2), 'utf-8');
+  } else if (extentionFile === '.ini') {
+    firstFile = ini.parse(fs.readFileSync(file1, 'utf-8'));
+    secondFile = ini.parse(fs.readFileSync(file2, 'utf-8'));
   }
 
   return [firstFile, secondFile];

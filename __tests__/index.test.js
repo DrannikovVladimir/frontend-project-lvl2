@@ -3,8 +3,8 @@ import genDiff from '../src/index.js';
 
 test('gendiff', () => {
   const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
-  const fileBefore = getFixturePath('before.json') || getFixturePath('before.yml');
-  const fileAfter = getFixturePath('after.json') || getFixturePath('after.yml');
+  const fileBefore = getFixturePath('before.json') || getFixturePath('before.yml') || getFixturePath('before.ini');
+  const fileAfter = getFixturePath('after.json') || getFixturePath('after.yml') || getFixturePath('after.ini');
   const result =
 `{
    host: hexlet.io

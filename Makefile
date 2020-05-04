@@ -24,4 +24,4 @@ test-coverage:
 	npm test -- --coverage
 
 run:
-	npx babel-node src/bin/gendiff.js -f '__fixtures__/before.yml' '__fixtures__/after.yml'
+	npx babel-node src/bin/gendiff.js -f '__fixtures__/before.ini' '__fixtures__/after.ini'
