@@ -5,7 +5,7 @@ test('gendiff', () => {
   const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
   const fileBefore = getFixturePath('before.json') || getFixturePath('before.yml') || getFixturePath('before.ini');
   const fileAfter = getFixturePath('after.json') || getFixturePath('after.yml') || getFixturePath('after.ini');
-  const result =
+  const tree =
 `{
     common: {
       + follow: false
@@ -40,5 +40,18 @@ test('gendiff', () => {
         fee: 100500
     }
 }`;
-  expect(genDiff(fileBefore, fileAfter)).toEqual(result);
+  const plain =
+`Property common.follow was added with value: false
+Property common.setting2 was deleted
+Property common.setting3 was changed from 'true' to '[complex value]'
+Property common.setting4 was added with value: blah blah
+Property common.setting5 was added with value: [complex value]
+Property common.setting6.ops was added with value: vops
+Property group1.baz was changed from 'bas' to 'bars'
+Property group1.nest was changed from '[complex value]' to 'str'
+Property group2 was deleted
+Property group3 was added with value: [complex value]`
+
+  expect(genDiff(fileBefore, fileAfter, 'tree')).toEqual(tree);
+  expect(genDiff(fileBefore, fileAfter, 'plain')).toEqual(plain);
 });

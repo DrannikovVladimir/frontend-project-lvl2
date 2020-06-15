@@ -3,7 +3,7 @@ import getParsedFiles from './parsers.js';
 
 const genAst = (firstFile, secondFile) => {
   const keys = _.union(Object.keys(firstFile), Object.keys(secondFile)).sort();
-  const AST = keys.map((key) => {
+  const treeAst = keys.map((key) => {
     if (_.isObject(firstFile[key]) && _.isObject(secondFile[key])) {
       return {
         name: key,
@@ -19,12 +19,12 @@ const genAst = (firstFile, secondFile) => {
     }
     if (firstFile[key] !== secondFile[key]) {
       return {
-        name: key, valueBefore: firstFile[key], valueAfter: secondFile[key], status: 'edited',
+        name: key, valueBefore: firstFile[key], valueAfter: secondFile[key], status: 'changed',
       };
     }
     return { name: key, value: firstFile[key], status: 'unchanged' };
   });
-  return AST;
+  return treeAst;
 };
 
 const createDiff = (pathToFile1, pathToFile2) => {

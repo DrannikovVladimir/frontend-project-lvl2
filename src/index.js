@@ -1,9 +1,9 @@
 import createDiff from './createDiff.js';
-import renderTree from './stylish.js';
+import render from './formatters/index.js';
 
-const genDiff = (pathToFile1, pathToFile2) => {
+const genDiff = (pathToFile1, pathToFile2, format) => {
   const diff = createDiff(pathToFile1, pathToFile2);
-  const tree = renderTree(diff);
+  const tree = render(diff, format);
   return tree;
 };
 
