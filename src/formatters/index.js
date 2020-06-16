@@ -4,7 +4,7 @@ import renderJson from './json.js';
 
 const render = (treeAst, format) => {
   switch (format) {
-    case 'tree':
+    case 'nested':
       return renderTree(treeAst);
     case 'plain':
       return renderPlain(treeAst);

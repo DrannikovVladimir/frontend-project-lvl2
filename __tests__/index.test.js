@@ -57,7 +57,7 @@ Property group3 was added with value: [complex value]`;
 
   const fileJson = fs.readFileSync(getFixturePath('result.json'), 'utf-8').trim();
 
-  expect(genDiff(firstFile, secondFile, 'tree')).toEqual(tree);
+  expect(genDiff(firstFile, secondFile, 'nested')).toEqual(tree);
   expect(genDiff(firstFile, secondFile, 'plain')).toEqual(plain);
   expect(genDiff(firstFile, secondFile, 'json')).toEqual(fileJson);
 });
