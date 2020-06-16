@@ -17,16 +17,18 @@ CLI utitlity for Compares two configuration files and shows a difference.
 
 ### Usage   
 
-Use `gendiff --help` or `gendiff -h` to show page help   
+Use `gendiff --help` or `gendiff -h` to show page help     
 
-`Usage: gendiff [options] \<firstConfig\> \<secondConfig\>
+```
+Usage: gendiff [options] <firstConfig> <secondConfig>
 
 Compares two configuration files and shows a difference.  
 
 Options:  
   -V, --version        output the version number  
   -f, --format [type]  output format  
-  -h, --help           display help for command`     
+  -h, --help           display help for command
+```      
 
 
 ### Options   
