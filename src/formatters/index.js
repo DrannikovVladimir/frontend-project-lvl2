@@ -11,7 +11,7 @@ const render = (treeAst, format) => {
     case 'json':
       return renderJson(treeAst);
     default:
-      return null;
+      throw new Error(`Error! Format '${format}' is unknown.`);
   }
 };
 

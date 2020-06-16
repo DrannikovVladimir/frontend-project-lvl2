@@ -19,7 +19,7 @@ const renderPlain = (treeAst) => {
         case 'hasChildren':
           return iter(children, [...pathName, name]);
         default:
-          return null;
+          throw new Error(`Error! Status '${status}' is unknown.`);
       }
     });
     return result.join('\n');

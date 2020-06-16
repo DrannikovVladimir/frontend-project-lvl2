@@ -28,7 +28,7 @@ const renderTree = (treeAst) => {
         case 'hasChildren':
           return `${indent(depth + 2)}  ${name}: ${iter(children, depth + 4)}`;
         default:
-          return null;
+          throw new Error(`Error! Status '${status}' is unknown.`);
       }
     });
     return ['{', ...result, `${indent(depth)}}`].join('\n');

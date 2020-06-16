@@ -24,4 +24,4 @@ test-coverage:
 	npm test -- --coverage
 
 run:
-	npx babel-node src/bin/gendiff.js -f plain '__fixtures__/first.json' '__fixtures__/second.json'
+	npx babel-node src/bin/gendiff.js -f nested '__fixtures__/first.json' '__fixtures__/second.json'
