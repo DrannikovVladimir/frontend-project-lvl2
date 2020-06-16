@@ -1,5 +1,6 @@
 import renderPlain from './plain.js';
 import renderTree from './stylish.js';
+import renderJson from './json.js';
 
 const render = (treeAst, format) => {
   switch (format) {
@@ -7,6 +8,8 @@ const render = (treeAst, format) => {
       return renderTree(treeAst);
     case 'plain':
       return renderPlain(treeAst);
+    case 'json':
+      return renderJson(treeAst);
     default:
       return null;
   }
