@@ -1,10 +1,12 @@
 import path from 'path';
+import fs from 'fs';
 import genDiff from '../src/index.js';
 
 test('gendiff', () => {
   const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
-  const fileBefore = getFixturePath('before.json') || getFixturePath('before.yml') || getFixturePath('before.ini');
-  const fileAfter = getFixturePath('after.json') || getFixturePath('after.yml') || getFixturePath('after.ini');
+  const firstFile = getFixturePath('first.json') || getFixturePath('first.yml') || getFixturePath('first.ini');
+  const secondFile = getFixturePath('second.json') || getFixturePath('second.yml') || getFixturePath('second.ini');
+
   const tree =
 `{
     common: {
@@ -40,6 +42,7 @@ test('gendiff', () => {
         fee: 100500
     }
 }`;
+
   const plain =
 `Property common.follow was added with value: false
 Property common.setting2 was deleted
@@ -50,8 +53,11 @@ Property common.setting6.ops was added with value: vops
 Property group1.baz was changed from 'bas' to 'bars'
 Property group1.nest was changed from '[complex value]' to 'str'
 Property group2 was deleted
-Property group3 was added with value: [complex value]`
+Property group3 was added with value: [complex value]`;
 
-  expect(genDiff(fileBefore, fileAfter, 'tree')).toEqual(tree);
-  expect(genDiff(fileBefore, fileAfter, 'plain')).toEqual(plain);
+  const fileJson = fs.readFileSync(getFixturePath('result.json'), 'utf-8').trim();
+
+  expect(genDiff(firstFile, secondFile, 'tree')).toEqual(tree);
+  expect(genDiff(firstFile, secondFile, 'plain')).toEqual(plain);
+  expect(genDiff(firstFile, secondFile, 'json')).toEqual(fileJson);
 });
