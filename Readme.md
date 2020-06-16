@@ -1,18 +1,17 @@
 #  Gendiff
 
-CLI utitlity for Compares two configuration files and shows a difference.   
-
+CLI utitlity for Compares two configuration files and shows a difference. Gendiff supports json, yml, ini formats.   
 
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/64265dba2628baec6e37/maintainability)](https://codeclimate.com/github/DrannikovVladimir/frontend-project-lvl2/maintainability)
 ![Node.js CI](https://github.com/DrannikovVladimir/frontend-project-lvl2/workflows/Node.js%20CI/badge.svg)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/64265dba2628baec6e37/test_coverage)](https://codeclimate.com/github/DrannikovVladimir/frontend-project-lvl2/test_coverage)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/64265dba2628baec6e37/test_coverage)](https://codeclimate.com/github/DrannikovVladimir/frontend-project-lvl2/test_coverage)   
 
 
 
 ### Install   
 
-
+[![asciicast](https://asciinema.org/a/8aGEN4FzGSsrQHsBKtFsd0nWH.svg)](https://asciinema.org/a/8aGEN4FzGSsrQHsBKtFsd0nWH)   
 
 
 ### Usage   
@@ -39,9 +38,12 @@ Options:
 
 
 ##### Nested Examples   
+[![asciicast](https://asciinema.org/a/pNlSANRE0vJ3DgOj95T6Rfnbs.svg)](https://asciinema.org/a/pNlSANRE0vJ3DgOj95T6Rfnbs)   
 
 
 ##### Plain Examples   
+[![asciicast](https://asciinema.org/a/gQREZ27Ho9tEo5sPH1pUmQEXg.svg)](https://asciinema.org/a/gQREZ27Ho9tEo5sPH1pUmQEXg)   
 
 
 ##### JSON Examples   
+[![asciicast](https://asciinema.org/a/GbMBSBCIEJ2HGPANhMO6sxEQ4.svg)](https://asciinema.org/a/GbMBSBCIEJ2HGPANhMO6sxEQ4)   
