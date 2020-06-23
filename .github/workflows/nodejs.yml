@@ -20,11 +20,16 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm ci
-    - run: npm test
+    - name: Install dependencies and test
+      run: |
+        make install
+        make test
+    - name: lint
+      run: make lint
+    - name: Publish code coverage
+      uses: paambaati/codeclimate-action@v2.4.0
       env:
         CC_TEST_REPORTER_ID: 504848acacabe75f463db7321f664362236f178417eaefb6ba0bd04f070d473b
+      with:
+        coverageCommand: make test-coverage
+        debag: true
