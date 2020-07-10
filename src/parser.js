@@ -18,17 +18,17 @@ const numberifyValues = (obj) => {
   return result;
 };
 
-const parseFile = (type, file) => {
+const parse = (type, data) => {
   switch (type) {
     case 'json':
-      return JSON.parse(file, 'utf-8');
+      return JSON.parse(data, 'utf-8');
     case 'yml':
-      return yaml.safeLoad(file, 'utf-8');
+      return yaml.safeLoad(data, 'utf-8');
     case 'ini':
-      return numberifyValues(ini.parse(file, 'utf-8'));
+      return numberifyValues(ini.parse(data, 'utf-8'));
     default:
       throw new Error(`Error! Type ${type} is unknown.`);
   }
 };
 
-export default parseFile;
+export default parse;

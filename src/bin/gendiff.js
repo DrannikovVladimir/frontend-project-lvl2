@@ -8,8 +8,8 @@ program
   .description('Compares two configuration files and shows a difference.')
   .arguments('<firstConfig> <secondConfig>')
   .option('-f, --format [type]', 'output format')
-  .action((firstFile, secondFile) => {
-    const result = genDiff(firstFile, secondFile, program.format);
+  .action((firstConfig, secondConfig) => {
+    const result = genDiff(firstConfig, secondConfig, program.format);
     console.log(result);
   });
 

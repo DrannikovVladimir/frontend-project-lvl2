@@ -24,4 +24,4 @@ test-coverage:
 	npm test -- --coverage
 
 run:
-	npx babel-node src/bin/gendiff.js -f json '__fixtures__/first.ini' '__fixtures__/second.ini'
+	npx babel-node src/bin/gendiff.js -f nested '__fixtures__/first.ini' '__fixtures__/second.ini'
