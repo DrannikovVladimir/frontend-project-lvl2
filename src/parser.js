@@ -21,11 +21,11 @@ const numberifyValues = (obj) => {
 const parse = (type, data) => {
   switch (type) {
     case 'json':
-      return JSON.parse(data, 'utf-8');
+      return JSON.parse(data);
     case 'yml':
-      return yaml.safeLoad(data, 'utf-8');
+      return yaml.safeLoad(data);
     case 'ini':
-      return numberifyValues(ini.parse(data, 'utf-8'));
+      return numberifyValues(ini.parse(data));
     default:
       throw new Error(`Error! Type ${type} is unknown.`);
   }

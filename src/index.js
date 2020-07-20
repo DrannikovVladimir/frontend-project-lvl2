@@ -1,4 +1,4 @@
-import genAst from './genDiff.js';
+import compareData from './genDiff.js';
 import render from './formatters/index.js';
 import parse from './parser.js';
 import { readFile, getExtentionFile } from './utils.js';
@@ -9,7 +9,7 @@ const genDiff = (pathToFile1, pathToFile2, format = 'nested') => {
   const type = getExtentionFile(pathToFile1);
   const firstConfig = parse(type, data1);
   const secondConfig = parse(type, data2);
-  const ast = genAst(firstConfig, secondConfig);
+  const ast = compareData(firstConfig, secondConfig);
   return render(ast, format);
 };
 
