@@ -1,27 +1,27 @@
 import _ from 'lodash';
 
-const compareData = (firstFile, secondFile) => {
-  const keys = _.union(Object.keys(firstFile), Object.keys(secondFile)).sort();
+const compareData = (firstData, secondData) => {
+  const keys = _.union(Object.keys(firstData), Object.keys(secondData)).sort();
   const diff = keys.map((key) => {
-    if (!_.has(firstFile, key)) {
-      return { name: key, value: secondFile[key], status: 'added' };
+    if (!_.has(firstData, key)) {
+      return { name: key, value: secondData[key], status: 'added' };
     }
-    if (!_.has(secondFile, key)) {
-      return { name: key, value: firstFile[key], status: 'deleted' };
+    if (!_.has(secondData, key)) {
+      return { name: key, value: firstData[key], status: 'deleted' };
     }
-    if (_.isObject(firstFile[key]) && _.isObject(secondFile[key])) {
+    if (_.isObject(firstData[key]) && _.isObject(secondData[key])) {
       return {
         name: key,
         status: 'hasChildren',
-        children: compareData(firstFile[key], secondFile[key]),
+        children: compareData(firstData[key], secondData[key]),
       };
     }
-    if (firstFile[key] !== secondFile[key]) {
+    if (firstData[key] !== secondData[key]) {
       return {
-        name: key, valueBefore: firstFile[key], valueAfter: secondFile[key], status: 'changed',
+        name: key, valueBefore: firstData[key], valueAfter: secondData[key], status: 'changed',
       };
     }
-    return { name: key, value: firstFile[key], status: 'unchanged' };
+    return { name: key, value: firstData[key], status: 'unchanged' };
   });
   return diff;
 };
